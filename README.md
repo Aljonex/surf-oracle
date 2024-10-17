@@ -328,33 +328,66 @@ User management is a critical component of the surf prediction web application. 
 
 #### **4.5 Testing**
 - Write unit tests for user registration, login, and profile management functionality to ensure they work as expected.
+---
+
+### **Step 5: Graphical Visualization**
+
+Graphical visualization is essential for presenting wave data, predictions, and user feedback in an intuitive and accessible manner. Here’s how to implement it:
+
+#### **5.1 Choose Visualization Libraries**
+- **Frontend Libraries**:
+  - Use **Chart.js** or **D3.js** for interactive and customizable charts and graphs.
+  - Consider **Plotly** for more advanced visualizations and easy integration with Python data.
+
+#### **5.2 Design Visualizations**
+- Identify key data points to visualize:
+  - **Wave Predictions**: Show predicted wave heights and periods over time.
+  - **Historical Data**: Compare historical wave data against predictions to evaluate accuracy.
+  - **User Feedback**: Visualize user ratings and comments over time.
+
+#### **5.3 Implement Interactive Features**
+- Allow users to interact with the visualizations:
+  - Provide tooltips with detailed information on hover.
+  - Enable filtering by date range or specific surf spots to customize the view.
+
+#### **5.4 Integrate with Backend**
+- Fetch data from the backend APIs to populate visualizations:
+  - Use **Axios** or **Fetch API** to retrieve data from your RESTful API.
+  - Update visualizations dynamically as new data is received.
+
+#### **5.5 Responsive Design**
+- Ensure that visualizations are responsive and work well on various devices (desktop, tablet, mobile).
+- Use CSS frameworks like **Bootstrap** or **Tailwind CSS** to facilitate responsive design.
+
+#### **5.6 Testing**
+- Write tests for visualizations to ensure they render correctly and handle edge cases (e.g., no data scenarios).
 
 ---
 
-### **Step 5: Feedback System**
+### **Step 6: Feedback System**
 
 A feedback system allows users to rate predictions and provide comments, which can be valuable for improving the prediction model over time. Here’s how to implement this system:
 
-#### **5.1 Feedback Submission**
+#### **6.1 Feedback Submission**
 - Create a feedback form where users can submit their ratings (e.g., 1 to 5 stars) and comments on wave predictions.
 - Ensure the form is intuitive and easy to use, prompting users for specific feedback.
 
-#### **5.2 Store Feedback Data**
+#### **6.2 Store Feedback Data**
 - Design a database schema to store user feedback:
   - Include fields for user ID, prediction ID, rating, and comments.
   
 - Connect this feedback data to the user’s profile for tracking and analysis.
 
-#### **5.3 Feedback Analytics**
+#### **6.3 Feedback Analytics**
 - Create an analytics dashboard to visualize feedback trends:
   - Show average ratings, feedback over time, and other metrics that help identify areas for improvement.
   
 - Use this data to adjust prediction models, improving accuracy based on user insights.
 
-#### **5.4 User Notifications**
+#### **6.4 User Notifications**
 - Consider implementing a notification system to inform users when their feedback leads to changes or improvements in predictions.
 
-#### **5.5 Testing**
+#### **6.5 Testing**
 - Write tests to verify that feedback submission, storage, and retrieval processes work correctly and efficiently.
 
 ---
