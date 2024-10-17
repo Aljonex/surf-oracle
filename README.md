@@ -22,7 +22,9 @@ The project will consist of the following key components:
 
 ## Option 1: Java with Spring Boot
 
-![Spring Boot Logo](https://spring.io/images/spring-logo-2022-dark-d40c9d0131f5d83ce17386ef125abeab.svg)
+<p float="left">
+    <img src="https://www.reddit.com/r/java/comments/9sogxf/spring_boot_210_released_now_with_java_11_support/" alt="spring boot logo" width="100">
+</p>
 
 Spring Boot provides a robust framework for building scalable, enterprise-level applications. Here’s a breakdown of the steps to develop the surf prediction app using Spring Boot.
 
@@ -83,8 +85,10 @@ Spring Boot provides a robust framework for building scalable, enterprise-level 
 
 ## **Option 2: Python with Flask/Django**
 
-![Flask Logo](https://flask.palletsprojects.com/en/2.0.x/_static/flask-logo.png)
-![Django Logo](https://static.djangoproject.com/img/logos/django-logo-positive.png)
+<p float="left">
+  <img src="https://flask.palletsprojects.com/en/2.0.x/_static/flask-logo.png" width="100" alt="flask logo"/>
+  <img src="https://static.djangoproject.com/img/logos/django-logo-positive.png" width="100" alt="django logo"/> 
+</p>
 
 Python provides an easier and more flexible approach, particularly if you’re focusing on machine learning. You can use **Flask** for a lightweight option or **Django** if you need a full-featured framework.
 
@@ -162,7 +166,7 @@ graph LR
   C --> D
   E --> D
 ```
-```mwemIS
+```mermaid
 graph TD
   A[Oceanographic Data] -->|Train ML Model| B[Wave Prediction Model]
   B -->|Prediction| C[Backend API]
