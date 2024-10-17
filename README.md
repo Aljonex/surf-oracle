@@ -174,4 +174,193 @@ graph TD
   D -->|Rating Feedback| E[Backend API]
   E -->|Improve Prediction| B
 ```
+
+# **Surf Prediction Web Application**
+
+This project aims to develop a surf prediction web application that utilizes historical and current data on weather, waves, and tides to provide reliable surf predictions. This approach focuses on statistical methods rather than complex AI algorithms initially, allowing for a quicker development cycle.
+
+---
+
+## **Wave Prediction Model without AI**
+
+### **1. Data Sources**
+To build the wave prediction model, gather relevant data from various sources:
+
+- **Historical Wave Data**: Obtain past wave heights, periods, and directions from sources like NOAA (National Oceanic and Atmospheric Administration) and various surf forecasting websites.
+  
+- **Current Weather Data**: Access real-time weather data, including wind speed, wind direction, atmospheric pressure, and temperature. APIs like OpenWeatherMap or WeatherAPI are useful for this purpose.
+
+- **Tide Data**: Gather historical and current tidal information from tide prediction services or government oceanographic agencies.
+
+### **2. Data Integration**
+Combine these data sets into a cohesive model:
+
+- **Data Storage**: Store historical data in a database (e.g., PostgreSQL or MySQL). Use Python with Flask or Django to manage data collection and storage.
+
+- **APIs for Current Data**: Set up scripts to fetch current data from the weather and tide APIs at regular intervals (e.g., hourly). Use libraries like `requests` in Python to pull this data and update your database.
+
+### **3. Prediction Logic**
+Create a basic prediction algorithm using statistical methods:
+
+- **Statistical Analysis**: Employ statistical techniques like regression analysis to identify relationships between historical weather conditions and wave patterns. For example:
+  - **Linear Regression**: Predict wave height based on wind speed, direction, and tide level.
+  - **Moving Averages**: Calculate moving averages to smooth fluctuations and help predict future conditions based on historical data.
+
+- **Rule-Based System**: Implement a simple rule-based system with thresholds (e.g., “If wind speed exceeds 20 mph and is onshore, expect larger waves.”) for straightforward predictions.
+
+### **4. Visualizations**
+Create visualizations to represent your predictions:
+
+- **Graphs and Charts**: Use libraries like Matplotlib or Plotly to generate graphs showing predicted vs. actual wave heights, wind speeds, and tide levels over time.
+
+- **User Interface**: Present this data on your web app, allowing users to see predictions, historical data, and correlations.
+
+### **5. Iterative Improvement**
+As you gather more data and user feedback, consider gradually implementing more sophisticated methods, including:
+
+- **Machine Learning**: Once you have sufficient data, transition to machine learning models to improve accuracy and account for more complex patterns.
+
+- **User Feedback Loop**: Create a feedback system for users to rate predictions, helping to improve the algorithm based on real-world outcomes.
+
+---
+
+## **Advantages of This Approach**
+- **Lower Complexity**: Focusing on historical and current data allows for a solid foundation without the complexity of AI.
+- **Easier Debugging**: Straightforward statistical methods make it easier to troubleshoot and refine predictions.
+- **Quick MVP**: Develop a Minimum Viabl
+
+## **Roadmap Overview**
+
+### **Step 2: Backend Server (API Development)**
+
+The backend server is essential for handling requests, managing data, and providing the necessary APIs for the frontend to communicate with. Here’s how to set it up:
+
+#### **2.1 Choose the Framework**
+- **Java (Spring Boot)**:
+  - Use **Spring Boot** for creating a RESTful API quickly.
+  - Benefits include dependency management with **Maven** and built-in features for handling security and data access.
+
+- **Python (Flask/Django)**:
+  - Choose **Flask** for lightweight applications or **Django** for a more robust, full-featured framework.
+  - Both frameworks facilitate the creation of REST APIs and make data handling straightforward.
+
+#### **2.2 Set Up Database**
+- Use a relational database like **PostgreSQL** or **MySQL** for storing user data, predictions, historical data, etc.
+- Use **ORM** (Object Relational Mapping) tools:
+  - **Java**: Use **Spring Data JPA** to interact with the database.
+  - **Python**: Use **SQLAlchemy** (with Flask) or **Django ORM** for managing database operations.
+
+#### **2.3 Develop REST APIs**
+- Define endpoints for the frontend to interact with:
+  - **User Management**: Endpoints for user registration, login, and profile management.
+  - **Wave Predictions**: Endpoints for fetching historical and predicted wave data.
+  - **Feedback System**: Endpoints for submitting and retrieving user feedback on predictions.
+
+#### **2.4 Implement Authentication**
+- Use JWT (JSON Web Tokens) for user authentication:
+  - **Java**: Use **Spring Security** with JWT support.
+  - **Python**: Use **Flask-JWT** or **Django Rest Framework** with built-in token authentication.
+  
+#### **2.5 Testing**
+- Write unit tests for your APIs to ensure functionality:
+  - Use testing frameworks such as **JUnit** for Java and **pytest** or **unittest** for Python.
+
+---
+
+### **Step 3: Frontend UI Development**
+
+The frontend UI is crucial for providing users with an interactive experience to view predictions and manage their accounts. Here’s how to develop it:
+
+#### **3.1 Choose a Frontend Framework**
+- **React**: A popular library for building user interfaces. Great for single-page applications (SPAs).
+- **Vue**: An approachable, versatile framework for building user interfaces.
+- **Angular**: A platform for building mobile and desktop web applications with a robust structure.
+
+#### **3.2 Design the User Interface**
+- Focus on a user-friendly layout with the following components:
+  - **Home Page**: Display current conditions, wave predictions, and trending surf spots.
+  - **User Dashboard**: Allow users to view their saved spots and prediction history.
+  - **Feedback Page**: Enable users to submit feedback and view ratings of past predictions.
+
+#### **3.3 Connect to the Backend**
+- Use **Axios** or **Fetch API** to connect the frontend to the backend APIs:
+  - Fetch wave predictions and display them in a visual format (graphs/charts).
+  - Handle user authentication (login/logout) and manage session states.
+
+#### **3.4 Data Visualization**
+- Use libraries such as **Chart.js**, **D3.js**, or **Plotly** for graphical visualizations of wave data:
+  - Create interactive charts that represent historical vs. predicted wave heights, wind speeds, and tide levels.
+
+#### **3.5 Testing**
+- Write tests for your components:
+  - Use testing libraries like **Jest** and **React Testing Library** for React, or **Mocha** and **Chai** for Vue/Angular.
+
+---
+
+### **Step 4: User Management**
+
+User management is a critical component of the surf prediction web application. It enables users to create accounts, save their favorite surf spots, and manage their preferences. Here's how to implement this functionality:
+
+#### **4.1 User Registration and Authentication**
+- **Registration**:
+  - Create a registration form where users can sign up with their email, username, and password.
+  - Implement form validation to ensure the data entered is correct and secure.
+  
+- **Login**:
+  - Provide a login form for users to authenticate themselves.
+  - Use JWT (JSON Web Tokens) for maintaining user sessions.
+
+#### **4.2 User Profile Management**
+- Allow users to view and edit their profiles:
+  - Users should be able to update their email, password, and personal information.
+  
+- **Saved Spots**:
+  - Create functionality for users to save their favorite surf spots.
+  - Store this information in the database and link it to their user profile.
+
+#### **4.3 Role Management (Optional)**
+- Implement different user roles (e.g., admin, regular user) to manage access to certain features.
+- Admin users can moderate content, manage feedback, and view analytics.
+
+#### **4.4 Security Measures**
+- Ensure password security by hashing passwords before storing them in the database (e.g., using **BCrypt**).
+- Implement rate limiting and account lockout mechanisms to prevent brute-force attacks.
+
+#### **4.5 Testing**
+- Write unit tests for user registration, login, and profile management functionality to ensure they work as expected.
+
+---
+
+### **Step 5: Feedback System**
+
+A feedback system allows users to rate predictions and provide comments, which can be valuable for improving the prediction model over time. Here’s how to implement this system:
+
+#### **5.1 Feedback Submission**
+- Create a feedback form where users can submit their ratings (e.g., 1 to 5 stars) and comments on wave predictions.
+- Ensure the form is intuitive and easy to use, prompting users for specific feedback.
+
+#### **5.2 Store Feedback Data**
+- Design a database schema to store user feedback:
+  - Include fields for user ID, prediction ID, rating, and comments.
+  
+- Connect this feedback data to the user’s profile for tracking and analysis.
+
+#### **5.3 Feedback Analytics**
+- Create an analytics dashboard to visualize feedback trends:
+  - Show average ratings, feedback over time, and other metrics that help identify areas for improvement.
+  
+- Use this data to adjust prediction models, improving accuracy based on user insights.
+
+#### **5.4 User Notifications**
+- Consider implementing a notification system to inform users when their feedback leads to changes or improvements in predictions.
+
+#### **5.5 Testing**
+- Write tests to verify that feedback submission, storage, and retrieval processes work correctly and efficiently.
+
+---
+
+## **Conclusion**
+This roadmap provides a detailed guide for implementing key features of the surf prediction web application, including the backend server, frontend UI, user management, and feedback system. By following these steps, you will create a robust application that meets user needs and evolves over time.
+
+
 There may be more to come, an Alex and Aaron project.
